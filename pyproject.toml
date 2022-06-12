@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "robots_industries"
+version = "1.0.0"
+description = ""
+authors = ["neodarz"]
+
+[tool.poetry.scripts]
+robots_factory = 'robots_industries.factory:main'
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+flake8 = "^4.0.1"
+flake8-simplify = "^0.19.2"
+flake8-commas = "^2.1.0"
+flake8-comprehensions = "^3.10.0"
+flake8-quotes = "^3.3.1"
+flake8-builtins = "^1.5.3"
+pep8-naming = "^0.13.0"
+flake8-functions = "^0.0.7"
+flakeheaven = "^1.0.1"
+darglint = "^1.8.1"
+dlint = "^0.12.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flakeheaven]
+format = "grouped"
+show_source = true
+
+[tool.flakeheaven.plugins]
+dlint = ["+*", "-DUO102"]
+flake8-bandit  = ["+*", "-S311"]
+flake8-broken-line  = ["+*"]
+flake8-builtins  = ["+*"]
+flake8-commas  = ["+*"]
+flake8-comprehensions  = ["+*"]
+flake8-darglint  = ["+*"]
+flake8-debugger  = ["+*"]
+flake8-docstrings  = ["+*", "-D104"]
+flake8-eradicate  = ["+*"]
+flake8-functions  = ["+*"]
+flake8-quotes  = ["+*"]
+flake8-rst-docstrings  = ["+*"]
+flake8-simplify  = ["+*"]
+flake8-string-format  = ["+*"]
+mccabe  = ["+*"]
+pep8-naming  = ["+*"]
+pycodestyle  = ["+*"]
+pyflakes  = ["+*"]
+pylint = ["+*"]
+
+

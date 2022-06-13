@@ -10,11 +10,11 @@ This program is a quick exercise about assembling foobar by an automated system.
 
 ## Installation
 
-Its recommend to install the program via a virtual env. You have multiple way to do it. This project is based on a `pyproject.toml` with poetry as the builder tool.
+Its recommend to install the program via a virtual env. You have multiple way to do it. This project is based on a `pyproject.toml` with poetry as the builder tool. Here is command to use:
 
 ```
-poetry shell
-poetry install --no-dev
+poetry shell # Enable the virtualenv
+poetry install --no-dev # Install the project dependencies
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ cd htmlcov
 python -m http.server
 ```
 
-## Interpretations && technical choices
+## Interpretations & technical choices
 
 ### Inventory system
 
@@ -65,15 +65,15 @@ For now most of the checks for which activity to choose from are based on the co
 
 ### Item<T> classes
 
-While there is only an Item class for Integer the idea was to hide most of the logic of multiprocessing.Value behind classes for make more readable Robot class. One of the problematic of my current implementation is that its needed to rewrite all the method of the mutable classes.
+While there is only an Item class for Integer the idea was to hide most of the logic of multiprocessing.Value behind classes for make more readable Robot class. One of the problematic of my current implementation is that its needed to rewrite all the method of the non mutable classes.
 
 ### Unittest
 
-Not all the code is cover by the tests but most of it is. This project has not been made in a TDD methodology mainly because it was one of the first where I was using the multiprocessing module. This has for consequence to make the code more complicated that it should have been.
+Not all the code is cover by the tests but most of it is. This project has not been made in a TDD methodology mainly because it was one of the first time where I was using the multiprocessing module. This has for consequence to make the code more complicated that it should have been.
 
 ### Production of foobar
 
-While the goal is about automatic production of `foobar`, the story has more be made around `robots` but the end goal is the same, there is a production of `foobar`.
+While the goal is about automatic production of `foobar`, the story has more be made around `robots` and so the output of the program but the end goal is the same, there is a production of `foobar`.
 
 ## Future
 

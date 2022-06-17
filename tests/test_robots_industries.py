@@ -13,31 +13,91 @@ from unittest.mock import patch, MagicMock
 
 class ItemIntTest(unittest.TestCase):
 
-    def test_ItemInt(self):
+    def test_ItemInt_int(self):
         item = ItemInt(42)
-        assert int(item) == int(42)
-        assert str(item) == str(42)
-        assert repr(item) == repr(42)
-        assert item == 42
-        assert item > 12
-        assert item >= 42
-        assert item < 43
-        assert item <= 42
+        self.assertEqual(int(item), int(42))
+        self.assertNotEqual(int(item), str(42))
+
+    def test_ItemInt_convert_str(self):
+        item = ItemInt(45)
+        self.assertEqual(str(item), str(45))
+        self.assertNotEqual(str(item), int(45))
+
+    def test_ItemInt_convert_repr(self):
+        item = ItemInt(47)
+        self.assertEqual(repr(item), repr(47))
+        self.assertNotEqual(repr(item), int(47))
+
+    def test_ItemInt_eq(self):
+        item = ItemInt(42)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_gt(self):
+        item = ItemInt(42)
+        self.assertGreater(item, 12)
+
+    def test_ItemInt_ge(self):
+        item = ItemInt(42)
+        self.assertGreaterEqual(item, 42)
+        self.assertGreaterEqual(item, 41)
+
+    def test_ItemInt_lt(self):
+        item = ItemInt(42)
+        self.assertLess(item, 43)
+
+    def test_ItemInt_le(self):
+        item = ItemInt(42)
+        self.assertLessEqual(item, 43)
+        self.assertLessEqual(item, 44)
+
+    def test_ItemInt_add(self):
+        item = ItemInt(42)
         item += 1
-        assert item == 43
+        self.assertEqual(item, 43)
+
+    def test_ItemInt_sub(self):
+        item = ItemInt(42)
         item -= 1
-        assert item == 42
+        self.assertEqual(item, 41)
+
+    def test_ItemInt_mod(self):
+        item = ItemInt(42)
         new = item % 5
-        assert new == 2
+        self.assertEqual(new, 2)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_mul(self):
+        item = ItemInt(42)
         new = item * 2
-        assert new == 84
+        self.assertEqual(new, 84)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_truediv(self):
+        item = ItemInt(42)
         new = item / 2
-        assert new == 21.0
+        self.assertEqual(new, 21.0)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_rtruediv(self):
+        item = ItemInt(42)
         new = 2 / item
-        assert new ==  0.047619047619047616
-        assert item.__get__(item, item) == 42
+        self.assertEqual(new, 0.047619047619047616)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_rtruediv(self):
+        item = ItemInt(42)
+        new = 2 / item
+        self.assertEqual(new, 0.047619047619047616)
+        self.assertEqual(item, 42)
+
+    def test_ItemInt_get(self):
+        item = ItemInt(42)
+        self.assertEqual(item.__get__(item, item), 42)
+
+    def test_ItemInt_set(self):
+        item = ItemInt(42)
         item.__set__(item, 43)
-        assert item == 43
+        self.assertEqual(item, 43)
 
 class InventoryTests(unittest.TestCase):
 

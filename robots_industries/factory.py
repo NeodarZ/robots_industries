@@ -159,11 +159,13 @@ class Robot(Process):
             )
         # Check if selling some foobar is a possibility
         elif self.inventory.foobar and self.inventory.foobar % 5 == 0:
+            coins = int(self.inventory.foobar / 5)
             self.inventory.foobar -= int(self.inventory.foobar / 5 * 5)
             time.sleep(10 * self.speed)
-            self.inventory.coins += 1
+            self.inventory.coins += coins
             print(
-                'Successfully sell a foobar for 1 euros.\n',
+                f'Successfully sell {self.inventory.foobar} foobars',
+                f'for {coins} euros.\n',
                 f'{self.inventory}',
             )
         # Check if assembling some foobar is a possibility

@@ -151,7 +151,7 @@ class Robot(Process):
         if self.inventory.coins > 3 and self.inventory.foo > 6:
             self.inventory.coins -= 3
             self.inventory.foo -= 6
-            time.sleep(1 * self.speed)
+            time.sleep(1 / self.speed)
             self.inventory.pending_robot += 1
             print(
                 'Successfully buy a new robot for 6 euros.\n',
@@ -161,7 +161,7 @@ class Robot(Process):
         elif self.inventory.foobar and self.inventory.foobar % 5 == 0:
             coins = int(self.inventory.foobar / 5)
             self.inventory.foobar -= int(self.inventory.foobar / 5 * 5)
-            time.sleep(10 * self.speed)
+            time.sleep(10 / self.speed)
             self.inventory.coins += coins
             print(
                 f'Successfully sell {self.inventory.foobar} foobars',
@@ -173,7 +173,7 @@ class Robot(Process):
             print(self.name + ' assembling a foobar...')
             self.inventory.foo -= 1
             self.inventory.bar -= 1
-            duration = 2 * self.speed
+            duration = 2 / self.speed
             time.sleep(duration)
             chance = random.randrange(101)
             if chance > 60:
@@ -191,7 +191,7 @@ class Robot(Process):
         elif self.inventory.foo > 9:
             for action in range(0, 10):
                 print(self.name + ' mining some bar...')
-                duration = random.uniform(0.5, 2) * self.speed
+                duration = random.uniform(0.5, 2) / self.speed
                 time.sleep(duration)
                 self.inventory.bar += 1
                 print(
@@ -203,7 +203,7 @@ class Robot(Process):
         else:
             for action in range(0, 10):
                 print(self.name + ' mining some foo...')
-                duration = 1 * self.speed
+                duration = 1 / self.speed
                 time.sleep(duration)
                 self.inventory.foo += 1
                 print(
@@ -213,7 +213,7 @@ class Robot(Process):
                 )
 
         print(f'{self.name} is moving to a new activity...')
-        time.sleep(5 * self.speed)
+        time.sleep(5 / self.speed)
 
 
 def main():

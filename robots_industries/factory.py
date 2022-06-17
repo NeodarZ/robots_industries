@@ -197,7 +197,7 @@ class Robot(Process):
                     'seconds...\n',
                     f'Here is our current inventory:\n{self.inventory}',
                 )
-        # Check if mining some foor is a possibility
+        # Check if mining some foo is a possibility
         else:
             for action in range(0, 10):
                 print(self.name + ' mining some foo...')

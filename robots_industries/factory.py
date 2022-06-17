@@ -62,11 +62,13 @@ class ItemInt:
         return self._value.value < value
 
     def __add__(self, value, /):
-        self._value.value += value
+        with self._value.get_lock():
+            self._value.value += value
         return self
 
     def __sub__(self, value, /):
-        self._value.value -= value
+        with self._value.get_lock():
+            self._value.value -= value
         return self
 
     def __mod__(self, value, /):
